@@ -64,6 +64,6 @@
     0030   25 73 25 73 25 6e 25 6e 25 6e 25 6e 25 6e 25 6e   %s%s%n%n%n%n%n%n
     0040   00                                                .
 
-iptables filter 2 pak
+iptables block attacked traffic
 
-    iptables -I INPUT -p udp -m u32 --u32 '0>>22&0x3C@12=0x6b070000' -m length --length 600: -j DROP
+    iptables -I INPUT -p udp -m u32 --u32 '0>>22&0x3C@8=0x0a002473 && 0>>22&0x3C@12=0x25732573' -m comment --comment 'Salamon' -j DROP
